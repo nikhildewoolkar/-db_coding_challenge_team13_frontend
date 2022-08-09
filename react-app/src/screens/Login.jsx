@@ -66,7 +66,7 @@ function Login() {
 
     axios({
         method: 'post',
-        url: `${hostNameUrl}/api/token/1`,
+        url: `${hostNameUrl}/api/token`,
         data: body
     })
     .then(function (response) {
