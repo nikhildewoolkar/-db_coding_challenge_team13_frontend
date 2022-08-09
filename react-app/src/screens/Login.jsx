@@ -14,7 +14,6 @@ function Login() {
   const navigate = useNavigate();
 
   // React States
-  const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [open, setOpen] = React.useState(false);
 
@@ -23,27 +22,6 @@ function Login() {
       return;
     }
     setOpen(false);
-  };
-
-  // User Login info
-  const database = [
-    {
-      username: "user1",
-      password: "pass1",
-    },
-    {
-      username: "user2",
-      password: "pass2",
-    },
-    {
-      username: "user3",
-      password: "pass3",
-    },
-  ];
-
-  const errors = {
-    uname: "invalid username",
-    pass: "invalid password",
   };
 
   useEffect(() => {
@@ -79,12 +57,6 @@ function Login() {
     });
   };
 
-  // Generate JSX code for error message
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
-    );
-
   return (
     <div className="app">
       <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
@@ -101,12 +73,10 @@ function Login() {
             <div className="input-container">
               <label>Username </label>
               <input type="text" name="uname" required />
-              {renderErrorMessage("uname")}
             </div>
             <div className="input-container">
               <label>Password </label>
               <input type="password" name="pass" required />
-              {renderErrorMessage("pass")}
             </div>
             <div className="button-container">
               <input type="submit" />
