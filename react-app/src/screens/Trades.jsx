@@ -12,6 +12,9 @@ const Trades = () => {
     date.setDate(date.getDate() + x);
     return date;
   }
+
+  
+
   const oneDay = 24 * 60 * 60 * 1000;
   const database = [
     {
