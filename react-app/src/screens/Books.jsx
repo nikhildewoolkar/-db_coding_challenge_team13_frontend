@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BookCard from "../components/card";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
@@ -50,20 +50,19 @@ const Books = () => {
 
     if (user_token) {
 
-      console.log(user_token);
-
-      fetch(hostNameUrl + "/user/" + user_id, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + user_token,
-        },
-        // Adding method type
-        method: "GET",
-      })
-      .then((response) => {
-        console.log(response);
-      })
-
+      if(user_id !== "undefined") {
+        fetch(hostNameUrl + "/user/" + user_id, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + user_token,
+          },
+          // Adding method type
+          method: "GET",
+        })
+        .then((response) => {
+          console.log(response);
+        })
+      }
     }
   }, []);
 

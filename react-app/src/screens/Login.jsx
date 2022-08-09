@@ -55,7 +55,7 @@ function Login() {
         localStorage.setItem('user_token', response.data.token);
 
         //Setting User ID to local storage
-        localStorage.setItem('user_id', response.data.user_id);
+        localStorage.setItem('user_id', response.data.userId);
 
         setIsSubmitted(true);
     })
