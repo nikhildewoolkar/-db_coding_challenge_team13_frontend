@@ -37,10 +37,11 @@ function Login() {
     const { uname, pass } = document.forms[0];
 
     // Find user login info
-    var body = {
+    let body = {
       username: uname.value,
       password: pass.value
     }
+
     axios({
         method: 'post',
         url: `${hostNameUrl}/api/token`,
@@ -49,6 +50,13 @@ function Login() {
     .then(function (response) {
         console.log(response);
         localStorage.setItem('username', uname.value);
+
+        //Setting JWT Token to local storage
+        localStorage.setItem('user_token', response.data.token);
+
+        //Setting User ID to local storage
+        localStorage.setItem('user_id', response.data.user_id);
+
         setIsSubmitted(true);
     })
     .catch(function (error) {

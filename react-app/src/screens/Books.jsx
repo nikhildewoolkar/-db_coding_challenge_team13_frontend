@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
+import { hostNameUrl } from "../config/api";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -40,6 +41,32 @@ const Books = () => {
       bookName: "book6",
     },
   ];
+
+  // Similar to ComponentDidMount
+  useEffect( () => {
+
+    let user_token = localStorage.getItem('user_token');
+    let user_id = localStorage.getItem('user_id');
+
+    if (user_token) {
+
+      console.log(user_token);
+
+      fetch(hostNameUrl + "/user/" + user_id, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + user_token,
+        },
+        // Adding method type
+        method: "GET",
+      })
+      .then((response) => {
+        console.log(response);
+      })
+
+    }
+  }, []);
+
   return (
     <div>
       <h1> Welcome to Bond Tracker!</h1>
