@@ -44,10 +44,10 @@ export default function Header(props) {
               "FIC Team"
             )}
           </Typography>
-          {localStorage.getItem("username") && (
+          { path !== "" && localStorage.getItem("username") && (
             <Button color="inherit">{localStorage.getItem("username")}</Button>
           )}
-          {localStorage.getItem("username") && (
+          { path !== "" && localStorage.getItem("username") && (
             <Button color="inherit" onClick={() => logoutHandler()}>
               Logout
             </Button>
