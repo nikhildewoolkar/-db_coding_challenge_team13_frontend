@@ -1,1 +1,1 @@
-export const hostNameUrl = "http://localhost:8081";
+export const hostNameUrl = "https://db-grads-h46g-group-13.nw.r.appspot.com";
