@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import BookCard from "../components/card";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
-import { hostNameUrl } from "../config/api";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -31,40 +30,8 @@ const Books = () => {
     {
       id: "4",
       bookName: "book4",
-    },
-    {
-      id: "5",
-      bookName: "book5",
-    },
-    {
-      id: "6",
-      bookName: "book6",
-    },
-  ];
-
-  // Similar to ComponentDidMount
-  useEffect( () => {
-
-    let user_token = localStorage.getItem('user_token');
-    let user_id = localStorage.getItem('user_id');
-
-    if (user_token) {
-
-      if(user_id !== "undefined") {
-        fetch(hostNameUrl + "/user/" + user_id, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + user_token,
-          },
-          // Adding method type
-          method: "GET",
-        })
-        .then((response) => {
-          console.log(response);
-        })
-      }
     }
-  }, []);
+  ];
 
   return (
     <div>
@@ -73,7 +40,7 @@ const Books = () => {
         <Grid container spacing={2}>
           {database.map((data, i) => {
             return (
-              <Grid item xs={4} key={i}>
+              <Grid item xs={6} key={i}>
                 <Item>
                   <BookCard bookId={data.id} bookName={data.bookName} key={i} />
                 </Item>
