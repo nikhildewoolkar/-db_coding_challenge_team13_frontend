@@ -44,11 +44,11 @@ function InfoModal(props) {
       name: 'Slice May 22',
       isin: 'IN-000999623-1',
       cusip: 'CUSIP 024614ZL4',
-      issuer: 'Reserve Bank Of India',
+      issuer: 'Slice',
       maturityDate: dateInc(10),
       coupon: '11.5',
       type: 'BBB+',
-      faceValue: '3119'
+      faceValue: '2000'
     }
   };
 
