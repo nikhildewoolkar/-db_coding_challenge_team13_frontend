@@ -12,6 +12,46 @@ import {
 
 Modal.setAppElement("#root");
 function InfoModal(props) {
+  
+  function dateInc(x) {
+    var date = new Date();
+    date.setDate(date.getDate() + x);
+    return date;
+  }
+
+  const securities = {
+    1: {
+      name: 'Reliance A',
+      isin: 'IN-000402625-0',
+      cusip: 'CUSIP 084664BL4',
+      issuer: 'Reliance',
+      maturityDate: dateInc(1),
+      coupon: '9.15',
+      type: 'AAA',
+      faceValue: '1000'
+    },
+    2: {
+      name: 'Soverign Gold Bond',
+      isin: 'IN-000801623-0',
+      cusip: 'CUSIP 032661AL4',
+      issuer: 'Reserve Bank Of India',
+      maturityDate: dateInc(4),
+      coupon: '2.75',
+      type: 'AAA',
+      faceValue: '3119'
+    },
+    3: {
+      name: 'Slice May 22',
+      isin: 'IN-000999623-1',
+      cusip: 'CUSIP 024614ZL4',
+      issuer: 'Reserve Bank Of India',
+      maturityDate: dateInc(10),
+      coupon: '11.5',
+      type: 'BBB+',
+      faceValue: '3119'
+    }
+  };
+
   return (
     <div>
       <Modal
@@ -36,36 +76,36 @@ function InfoModal(props) {
           <TableHead style={{ backgroundColor: "LightBlue" }}>
             <TableRow style={{ height: "10px" }}>
               <TableCell>
-                <h4>Id:</h4>
+                <h4>Name:</h4>
               </TableCell>
               <TableCell>
-                <h4>{props.id}</h4>
+                <h4>{securities[props.id].name}</h4>
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow style={{ height: "10px" }}>
+            <TableRow>
               <TableCell>
-                <h5>Name: </h5>
+                <h5>ISIN: </h5>
               </TableCell>
               <TableCell>
-                <h5>{props.name} </h5>
+                <h5>{securities[props.id].isin} </h5>
               </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>
-                <h5>Quantity: </h5>
+                <h5>CUSIP: </h5>
               </TableCell>
               <TableCell>
-                <h5>{props.quatity} </h5>
+                <h5>{securities[props.id].cusip} </h5>
               </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>
-                <h5>Price: </h5>
+                <h5>Issuer: </h5>
               </TableCell>
               <TableCell>
-                <h5>{props.price} </h5>
+                <h5>{securities[props.id].issuer} </h5>
               </TableCell>
             </TableRow>
             <TableRow>
@@ -73,7 +113,23 @@ function InfoModal(props) {
                 <h5>Maturity Date: </h5>
               </TableCell>
               <TableCell>
-                <h5>{props.maturityDate} </h5>
+                <h5>{securities[props.id].maturityDate.toString()} </h5>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                <h5>Coupon: </h5>
+              </TableCell>
+              <TableCell>
+                <h5>{securities[props.id].coupon} </h5>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>
+                <h5>Face Value: </h5>
+              </TableCell>
+              <TableCell>
+                <h5>{securities[props.id].faceValue} </h5>
               </TableCell>
             </TableRow>
           </TableBody>
